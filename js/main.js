@@ -1,12 +1,13 @@
-function commentLength (commentLine, maxLeigth) {
-  return commentLine < maxLeigth;
+function getCommentLength(commentLine, maxLeigth) {
+  return commentLine.length < maxLeigth;
 }
 
-commentLength (120, 140);
+getCommentLength ('я текст', 140);
 
 function getRandomNumber(min, max) {
-  if (min >= max) {
-    return 'невное значение';
+  if (min <= 0 && min < max) {
+    console.log('неверное значение');
+    return;
   }
   return Math.floor(Math.random() * (max - min) + min);
 }
