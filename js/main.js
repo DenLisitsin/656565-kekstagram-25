@@ -5,20 +5,12 @@ const getRandomNumber = (a, b) => {
   return Math.floor(result);
 };
 
-let id;
-for (let i=1; i<25; i++) {
-  id = i;
-}
 const url = Array.from({length: 25}, (_, i) => `photos/${i+1}.jpg`);
 const description = ['Я отстаю!!!','Скоро лето, скоро вэйк','горы и сноуборд','прыгаю с парашютом','Работаю работу','учу js','мой котЭ туповат'];
-const likes = getRandomNumber(15, 200);
 
 const getRandomArrayElement = (element) => element[getRandomNumber(0, element.length - 1)];
 
-let userId;
-for (let i=1; i<100; i++) {
-  userId = i;
-}
+
 const avatar = Array.from({length: 6}, (_, i) => `img/avatar-${i+1}.svg`);
 const userName = ['Абрам','Аваз','Август','Авдей','Автандил','Адам','Адис','Адольф','Адриан'];
 const message = ['Всё отлично!',
@@ -27,18 +19,18 @@ const message = ['Всё отлично!',
   'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'];
-const comments = () => ({
+const comments = (userId) => ({
   id : userId,
   avatar : getRandomArrayElement(avatar),
   name : getRandomArrayElement(userName),
   message : getRandomArrayElement(message)
 });
 
-const createObject = () => ({
+const createObject = (id) => ({
   id : id,
   url : getRandomArrayElement(url),
   description : getRandomArrayElement(description),
-  likes : likes,
+  likes : getRandomNumber(15, 200),
   comments : comments()
 });
 
