@@ -5,23 +5,21 @@ const getRandomNumber = (a, b) => {
   return Math.floor(result);
 };
 
-const id = Array.from({length: 25}, (a, b) => b+1);
-const url = [];
-for (let i = 1; i < 25; i++) {
-  const str =`photos/${  i  }.jpg`;
-  url.push(str);
+let id;
+for (let i=1; i<25; i++) {
+  id = i;
 }
+const url = Array.from({length: 25}, (_, i) => `photos/${i+1}.jpg`);
 const description = ['Я отстаю!!!','Скоро лето, скоро вэйк','горы и сноуборд','прыгаю с парашютом','Работаю работу','учу js','мой котЭ туповат'];
-const likes = Array.from({length: 200}, (a, b) => b+15);
+const likes = getRandomNumber(15, 200);
 
-const getRandomArrayIndex = (element) => element[getRandomNumber(0, element.length - 1)];
+const getRandomArrayElement = (element) => element[getRandomNumber(0, element.length - 1)];
 
-const userId = getRandomNumber(1, 100);
-const avatar = [];
-for (let i = 1; i < 6; i++) {
-  const str = `img/avatar-${  i  }.svg`;
-  avatar.push(str);
+let userId;
+for (let i=1; i<100; i++) {
+  userId = i;
 }
+const avatar = Array.from({length: 6}, (_, i) => `img/avatar-${i+1}.svg`);
 const userName = ['Абрам','Аваз','Август','Авдей','Автандил','Адам','Адис','Адольф','Адриан'];
 const message = ['Всё отлично!',
   'В целом всё неплохо. Но не всё.',
@@ -31,18 +29,19 @@ const message = ['Всё отлично!',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'];
 const comments = () => ({
   id : userId,
-  avatar : getRandomArrayIndex(avatar),
-  name : getRandomArrayIndex(userName),
-  message : getRandomArrayIndex(message)
+  avatar : getRandomArrayElement(avatar),
+  name : getRandomArrayElement(userName),
+  message : getRandomArrayElement(message)
 });
 
 const createObject = () => ({
-  id : getRandomArrayIndex(id),
-  url : getRandomArrayIndex(url),
-  description : getRandomArrayIndex(description),
-  likes : getRandomArrayIndex(likes),
+  id : id,
+  url : getRandomArrayElement(url),
+  description : getRandomArrayElement(description),
+  likes : likes,
   comments : comments()
 });
 
-const createArray = Array.from({length: 5}, createObject);
-createArray();
+const newArray = Array.from({length: 25}, (_, i) => createObject(i+1));
+// eslint-disable-next-line no-console
+console.log(newArray);
