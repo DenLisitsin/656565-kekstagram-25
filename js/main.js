@@ -45,3 +45,4 @@ const createObject = () => ({
 });
 
 const createArray = Array.from({length: 5}, createObject);
+createArray();
