@@ -19,7 +19,7 @@ const message = ['Всё отлично!',
   'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'];
-const comments = (userId) => ({
+const comment = (userId) => ({
   id : userId,
   avatar : getRandomArrayElement(avatar),
   name : getRandomArrayElement(userName),
@@ -31,7 +31,7 @@ const createObject = (id) => ({
   url : getRandomArrayElement(url),
   description : getRandomArrayElement(description),
   likes : getRandomNumber(15, 200),
-  comments : comments()
+  comments : Array.from({length: getRandomNumber(0,30)}, (_, i) => comment(i+1))
 });
 
 const newArray = Array.from({length: 25}, (_, i) => createObject(i+1));
