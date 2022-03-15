@@ -1,5 +1,5 @@
-import './data.js';
-import { newArray } from './util.js';
+import {newArray} from './data.js';
+import './util.js';
 
 // eslint-disable-next-line no-console
 console.log(newArray);
