@@ -30,6 +30,6 @@ const createObject = (id) => ({
   comments : Array.from({length: getRandomNumber(0,30)}, (_, i) => comment(i+1))
 });
 
-const newArray = Array.from({length: 25}, (_, i) => createObject(i+1));
+const userDataArray = Array.from({length: 25}, (_, i) => createObject(i+1));
 
-export {description, userName, message, getRandomArrayElement, newArray, avatar, comment, url, createObject};
+export {description, userName, message, getRandomArrayElement, userDataArray, avatar, comment, url, createObject};
